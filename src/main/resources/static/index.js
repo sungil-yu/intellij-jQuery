@@ -10,5 +10,13 @@ $(function(){
        opacity : 0.5
     })
 
+    $('h1').mouseover(function(){
 
+        $(this).css({color : 'blue'});
+
+    })
+    .mouseout(function(){
+
+            $(this).css({color : 'red'});
+        });
 });
