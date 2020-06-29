@@ -1,22 +1,22 @@
 
 $(function(){
-
+//animate
 
     $('h1').css({
        color : 'red',
        textDecoration : 'underline',
        borderBottom:'5px solid red',
-       transform :'rotate(45deg)',
        opacity : 0.5
     })
+//id : typo안에 inner을 먼저선택하기
+//on메서드를 생략하고 click이벤트가 바로올 수 있습니다.
+   $(function(){
+    $('#typo .inner').click(function(){
+        //선택자.animate({속성:값, 속성:값}, 시간, 이징, 다른할일)
 
-    $('h1').mouseover(function(){
+        $(this).animate({opacity:0,fontSize:'0px'},1500);
 
-        $(this).css({color : 'blue'});
+    });
 
-    })
-    .mouseout(function(){
-
-            $(this).css({color : 'red'});
-        });
+   })
 });
