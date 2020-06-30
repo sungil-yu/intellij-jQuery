@@ -1,0 +1,53 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+        $('button').click(function(){
+        //A.load(B) A에 B의 내용을 불러옵니다.
+                $('#div1').load('demo_text.txt');
+        });
+
+        /*
+           responseTxt : 서버에 요청이 완료되면 결과 내용(param)에 저장
+           statusTxt : 서버에 요청을 보내면 , 요청의 상태
+           xhr : 요청한 오브젝트
+
+           $('#div1').load('경로', 요청이 완료되면 할일 function(reponseText,statusText,xhr){...실제할일...});
+         */
+
+         $('#div1').load('demo_test.txt', function(responseTxt, statusTxt, xhr){
+
+            if(statusTxt == "success" && xhr.status == 200){
+                alert('파일이 준비')
+              }else{
+                alert('파일 준비안됨')
+              }
+
+        $(function(){
+            $("button").click(function(){
+                //$.ajax({경로, 비동기화 여부,성공하면할일})
+                    //외부 js파일도 실행가능
+                //$.ajax({url : 'demo_ajax_load.txt', async: true ,dataType : "script" ,success : function(result){
+                    $('#div1').html(result);
+                }});
+            });
+
+        }'
+
+         })
+    });
+
+
+
+    </script>
+    </head>
+    <body>
+
+    <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+    <button>Get External Content</button>
+
+    </body>
+    </html>
